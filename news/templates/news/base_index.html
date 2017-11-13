@@ -1,0 +1,19 @@
+<!DOCTYPE html>
+
+
+    {% extends "base.html" %}
+    {% load static %}
+
+                {% block title %} Nyheter {% endblock %}
+
+                 {% block header %}
+              <ul>
+                <li><a class="active" href="">Home</a></li>
+                <li><a href="/sortiment/">Sortiment</a></li>
+                <li><a href="/om-oss/">Om Oss</a></li>
+              </ul>
+                 {% endblock %}
+
+                 {% block content %}
+               <h1 id="nyhet">NYHET!</h1>
+                 {% endblock %}

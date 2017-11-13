@@ -1,30 +1,19 @@
 <!DOCTYPE html>
-{% load static %}
 
 <html lang="">
-<head>
-  <meta charset="utf-8">
-  <link rel="stylesheet" href="{% static 'css/Style.css' %}">
-  <title>Om oss</title>
+    {% extends "base.html" %}
+    {% load static %}
+  {% block title %} Om oss {% endblock %}
 
-</head>
-
-    <body>
-          <div>
-            <div class="Container">
-
-             <div class="Title">
-               <h1>Kontakt uppgifter</h1>
-             </div>
-             <div class="Header">
+                 {% block header %}
               <ul>
                 <li><a href="..">Home</a></li>
                 <li><a href="../sortiment/">Sortiment</a></li>
                 <li><a class="active" href="../om-oss/">Om oss</a></li>
-
               </ul>
-             </div>
-             <div class="Content">
+                 {% endblock %}
+
+                 {% block content %}
                <div class="ContainerContacts">
                 <div class="Contactinfo">
                  <h3>Namn: </h3>
@@ -37,17 +26,4 @@
               <div class="Contactinfo">
                <h3>Namn: </h3>
                <p>Telefon nummer: </p>
-             </div>
-              </div>
-             </div>
-             <div class="Footer">
-
-             </div>
-            </div>
-          </div>
-
-
-
-
-    </body>
-</html>
+                  {% endblock %}
