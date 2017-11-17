@@ -7,5 +7,5 @@ def om_oss(request):
     context = {
 
     }
-    template = loader.get_template('om_oss.html')
+    template = loader.get_template('about/base_Om_oss.html')
     return HttpResponse(template.render(context, request))

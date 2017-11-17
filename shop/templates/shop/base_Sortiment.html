@@ -1,41 +1,24 @@
 <!DOCTYPE html>
 
-<html lang="">
-    {% extends "base.html" %}
-    {% load static %}
+{% extends "base.html" %}
+{% load static %}
 
   {% block title %} Sortiment {% endblock %}
 
-                {% block header %}
-              <ul>
-                <li><a href="..">Home</a></li>
-                <li><a class="active" href="#">Sortiment</a></li>
-                <li><a href="../om-oss/">Om oss</a></li>
-              </ul>
-                {% endblock %}
+            {% block header %}
+          <ul>
+            <li><a href="..">Home</a></li>
+            <li><a class="active" href="#">Sortiment</a></li>
+            <li><a href="../om-oss/">Om oss</a></li>
+          </ul>
+            {% endblock %}
 
-                {% block content %}
-               <h1>Här kommer det finnas Sortiment</h1>
-               <div class="Gallery">
-                  <img src="Shirt.jpg" alt="shirt">
-                  <div class="Desc">Im text under img</div>
-                </div>
-                <div class="Gallery">
-                   <img src="Shirt.jpg" alt="shirt">
-                   <div class="Desc">Im text under img</div>
-                 </div>
-                 <div class="Gallery">
-                    <img src="Shirt.jpg" alt="shirt">
-                    <div class="Desc">Im text under img</div>
-                  </div>
-                  <div class="Gallery">
-                     <img src="Shirt.jpg" alt="shirt">
-                     <div class="Desc">Im text under img</div>
-                   </div>
-                   <div class="Gallery">
-                      <img src="Shirt.jpg" alt="shirt">
-                      <div class="Desc">Im text under img</div>
-                    </div>
-                {% endblock %}
+            {% block content %}
+           <h1>Här kommer det finnas Sortiment</h1>
 
-</html>
+            {# insert for-loop going through clothes in database #}
+           <div class="Gallery">
+               <img src="Shirt.jpg" alt="shirt">
+               <div class="Desc">Im text under img</div>
+            </div>
+            {% endblock %}

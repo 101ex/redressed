@@ -1,19 +1,24 @@
 <!DOCTYPE html>
 
 
-    {% extends "base.html" %}
-    {% load static %}
+{% extends "base.html" %}
+{% load static %}
 
-                {% block title %} Nyheter {% endblock %}
+    {% block title %} Nyheter {% endblock %}
 
-                 {% block header %}
-              <ul>
-                <li><a class="active" href="">Home</a></li>
-                <li><a href="/sortiment/">Sortiment</a></li>
-                <li><a href="/om-oss/">Om Oss</a></li>
-              </ul>
-                 {% endblock %}
+        {% block header %}
+          <ul>
+            <li><a class="active" href="">Home</a></li>
+            <li><a href="/sortiment/">Sortiment</a></li>
+            <li><a href="/om-oss/">Om Oss</a></li>
+          </ul>
+        {% endblock %}
+            {# for loop going through articles #}
+            {% for article in article_list %}
+                {# article #}
+            {% endfor %}
 
-                 {% block content %}
-               <h1 id="nyhet">NYHET!</h1>
-                 {% endblock %}
+        {% block content %}
+        {# add template for news article #}
+           <h1 id="nyhet">NYHET!</h1>
+        {% endblock %}

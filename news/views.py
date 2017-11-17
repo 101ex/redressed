@@ -5,7 +5,8 @@ from . import models
 
 def index(request):
     context = {
-
+        #grab articles from database
     }
-    template = loader.get_template('homepage/index.html')
-    return HttpResponse(template.render(context, request))
+    template = loader.get_template('news/base_index.html')
+    html = template.render(context, request)
+    return HttpResponse(html)

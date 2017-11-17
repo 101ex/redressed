@@ -5,38 +5,36 @@
 <head>
   <meta charset="utf-8">
   <link rel="stylesheet" href="{% static 'css/Style.css' %}" />
-  <title>Home page</title>
+  <title>{% block title %}{% endblock %}</title>
 
 </head>
 
-    <body>
-          <div>
-            <div class="Container">
-
-             <div class="Title">
-               <h1>ReDressed</h1>
-             </div>
-             <div class="Header">
-              <ul>
-                <li><a class="active" href="">Home</a></li>
-                <li><a href="/sortiment/">Sortiment</a></li>
-                <li><a href="/om-oss/">Om Oss</a></li>
-
-              </ul>
-             </div>
-             <div class="Content">
-               <h1 id="nyhet">NYHET!</h1>
-                 {% for articles %}
-                 {% endfor %}
-             </div>
-             <div class="Footer">
-
-             </div>
+<body>
+    <div>
+        <div class="Container">
+            {% block logo %}
+            <div class="Title">
+                <h1>ReDressed</h1>
             </div>
-          </div>
-
-
-
-
-    </body>
+            {% endblock %}
+            <div class="Header">
+                {% block header %}
+                <ul>
+                    <li><a href="/">Home</a></li>
+                    <li><a href="/sortiment/">Sortiment</a></li>
+                    <li><a href="/om-oss/">Om Oss</a></li>
+                </ul>
+                {% endblock %}
+            </div>
+            <div class="Content">
+                {% block content %}
+                {% endblock %}
+            </div>
+            <div class="Footer">
+                {% block footer %}
+                {% endblock %}
+            </div>
+        </div>
+    </div>
+</body>
 </html>

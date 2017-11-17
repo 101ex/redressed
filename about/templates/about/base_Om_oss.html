@@ -1,29 +1,31 @@
 <!DOCTYPE html>
 
-<html lang="">
-    {% extends "base.html" %}
-    {% load static %}
-  {% block title %} Om oss {% endblock %}
+{% extends "base.html" %}
+{% load static %}
 
-                 {% block header %}
-              <ul>
-                <li><a href="..">Home</a></li>
-                <li><a href="../sortiment/">Sortiment</a></li>
-                <li><a class="active" href="../om-oss/">Om oss</a></li>
-              </ul>
-                 {% endblock %}
+    {% block title %} Om oss {% endblock %}
 
-                 {% block content %}
-               <div class="ContainerContacts">
-                <div class="Contactinfo">
-                 <h3>Namn: </h3>
-                 <p>Telefon nummer: </p>
+        {% block header %}
+          <ul>
+            <li><a href="..">Home</a></li>
+            <li><a href="../sortiment/">Sortiment</a></li>
+            <li><a class="active" href="../om-oss/">Om oss</a></li>
+          </ul>
+        {% endblock %}
+
+        {% block content %}
+           <div class="ContainerContacts">
+               <div class="Contactinfo">
+                   <h3>Namn: </h3>
+                   <p>Telefon nummer: </p>
                </div>
                <div class="Contactinfo">
-                <h3>Namn: </h3>
-                <p>Telefon nummer: </p>
-              </div>
-              <div class="Contactinfo">
-               <h3>Namn: </h3>
-               <p>Telefon nummer: </p>
-                  {% endblock %}
+                    <h3>Namn: </h3>
+                    <p>Telefon nummer: </p>
+                </div>
+               <div class="Contactinfo">
+                    <h3>Namn: </h3>
+                    <p>Telefon nummer: </p>
+               </div>
+           </div>
+        {% endblock %}
