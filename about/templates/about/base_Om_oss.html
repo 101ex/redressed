@@ -14,18 +14,35 @@
         {% endblock %}
 
         {% block content %}
-           <div class="ContainerContacts">
-               <div class="Contactinfo">
-                   <h3>Namn: </h3>
-                   <p>Telefon nummer: </p>
-               </div>
-               <div class="Contactinfo">
-                    <h3>Namn: </h3>
-                    <p>Telefon nummer: </p>
-                </div>
-               <div class="Contactinfo">
-                    <h3>Namn: </h3>
-                    <p>Telefon nummer: </p>
-               </div>
-           </div>
+        <div class="Content">
+          <div class="ContainerContacts">
+           <table class="Contacttable">
+             <tr>
+               <th>Förnamn</th>
+               <th>Efternamn</th>
+               <th>Email Adress</th>
+               <th>Telefon nr.</th>
+             </tr>
+             <tr>
+               <th>Nils</th>
+               <th>Eriksson</th>
+               <th>Apa@gmail.com</th>
+               <th>07123456789</th>
+             </tr>
+             <tr>
+               <th>Samuel</th>
+               <th>Häggbom</th>
+               <th>Blå@gmail.com</th>
+               <th>07987654321</th>
+             </tr>
+             <tr>
+               <th>Lalle</th>
+               <th>Tralle</th>
+               <th>Kalle@gmail.com</th>
+               <th>07123459876</th>
+             </tr>
+           </table>
+
+         </div>
+        </div>
         {% endblock %}
