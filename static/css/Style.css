@@ -66,12 +66,22 @@ img {
 .Header li:Hover:not(.active){
   background-color: #FFDB4C;
 }
+
 .SearchBar {
   float: right;
   margin-right: 8%;
-  margin-top: 2%;
-  margin-bottom: 2%;
+  margin-top: 1%;
+  margin-bottom: 1%;
 }
+
+.searchicon {
+  background-color: #dbb1bb;
+  border: 0px;
+}
+.searchicon:Hover {
+  background-color: #FFDB4C;
+}
+
 .active {
   background-color: #FFDB4C
 }

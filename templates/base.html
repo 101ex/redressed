@@ -5,6 +5,7 @@
 <head>
   <meta charset="utf-8">
   <link rel="stylesheet" href="{% static 'css/Style.css' %}" />
+  <link rel="stylesheet" href="https://fonts.googleapis.com/icon?family=Material+Icons">
   <title>{% block title %}{% endblock %}</title>
 
 </head>
@@ -25,7 +26,8 @@
                     <li><a href="/om-oss/">Om Oss</a></li>
                     <form class="SearchBar"
                       Sök: <br>
-                      <input type="text" placeholer="Sök...">
+                      <input type="text" placeholder="Sök...">
+                      <button class="searchicon"><i class="material-icons" style="font-size: 12px">search</i>Search</button>
                     </form>
                 </ul>
                 {% endblock %}
