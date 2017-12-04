@@ -4,7 +4,12 @@
 <html lang="sv">
 <head>
   <meta charset="utf-8">
+<<<<<<< HEAD
   {% block css%}<link rel="stylesheet" href="{% static '/css/Style.css' %}" />{% endblock %}
+=======
+  <link rel="stylesheet" href="{% static 'css/Style.css' %}" />
+  <link rel="stylesheet" href="https://fonts.googleapis.com/icon?family=Material+Icons">
+>>>>>>> 363cb05df300309d680d1011407e657a93504cfd
   <title>{% block title %}{% endblock %}</title>
 
 </head>
@@ -23,6 +28,11 @@
                     <li><a href="/">Home</a></li>
                     <li><a href="/sortiment/">Sortiment</a></li>
                     <li><a href="/om-oss/">Om Oss</a></li>
+                    <form class="SearchBar"
+                      Sök: <br>
+                      <input type="text" placeholder="Sök...">
+                      <button class="searchicon"><i class="material-icons" style="font-size: 12px">search</i>Search</button>
+                    </form>
                 </ul>
                 {% endblock %}
             </div>

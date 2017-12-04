@@ -16,7 +16,13 @@ img {
 .Bkimage {
   height: 100%;
   width: 100%;
+<<<<<<< HEAD
   background-image: url("/static/media/Lich-King-Banner.jpg");
+=======
+  background-image: url("/news/static/media/skogsoxe.jpg");
+  margin-top: 40px;
+  margin-bottom: 60px;
+>>>>>>> 363cb05df300309d680d1011407e657a93504cfd
 }
 .Container {
   width: 980px;
@@ -64,6 +70,22 @@ img {
 .Header li:Hover:not(.active){
   background-color: #FFDB4C;
 }
+
+.SearchBar {
+  float: right;
+  margin-right: 8%;
+  margin-top: 1%;
+  margin-bottom: 1%;
+}
+
+.searchicon {
+  background-color: #dbb1bb;
+  border: 0px;
+}
+.searchicon:Hover {
+  background-color: #FFDB4C;
+}
+
 .active {
   background-color: #FFDB4C
 }
