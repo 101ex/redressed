@@ -4,7 +4,7 @@
 <html lang="sv">
 <head>
   <meta charset="utf-8">
-  <link rel="stylesheet" href="{% static 'css/Style.css' %}" />
+  {% block css%}<link rel="stylesheet" href="{% static '/css/Style.css' %}" />{% endblock %}
   <title>{% block title %}{% endblock %}</title>
 
 </head>
