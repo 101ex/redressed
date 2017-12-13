@@ -4,12 +4,9 @@
 <html lang="sv">
 <head>
   <meta charset="utf-8">
-<<<<<<< HEAD
   {% block css%}<link rel="stylesheet" href="{% static '/css/Style.css' %}" />{% endblock %}
-=======
   <link rel="stylesheet" href="{% static 'css/Style.css' %}" />
   <link rel="stylesheet" href="https://fonts.googleapis.com/icon?family=Material+Icons">
->>>>>>> 363cb05df300309d680d1011407e657a93504cfd
   <title>{% block title %}{% endblock %}</title>
 
 </head>
@@ -25,9 +22,11 @@
             <div class="Header">
                 {% block header %}
                 <ul>
+                    {% block active_button %}
                     <li><a href="/">Home</a></li>
                     <li><a href="/sortiment/">Sortiment</a></li>
                     <li><a href="/om-oss/">Om Oss</a></li>
+                    {% endblock %}
                     <form class="SearchBar"
                       Sök: <br>
                       <input type="text" placeholder="Sök...">
