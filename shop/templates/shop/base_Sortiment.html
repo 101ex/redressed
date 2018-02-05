@@ -3,22 +3,45 @@
 {% extends "base.html" %}
 {% load static %}
 
-  {% block title %} Sortiment {% endblock %}
+{% block header_title %} {{requested_apparel.type}} {% endblock %}
 
-            {% block header %}
-          <ul>
-            <li><a href="..">Home</a></li>
-            <li><a class="active" href="#">Sortiment</a></li>
-            <li><a href="../om-oss/">Om oss</a></li>
-          </ul>
-            {% endblock %}
+{% block image_header %}
+{% if not apparel_focus %}
+    <img src="{% static requested_apparel.image %}" alt="image could not be found" style="width:100%">
+    <div class="w3-display-topleft w3-text-white" style="padding:24px 48px">
+        <h1 class="w3-jumbo w3-hide-small" style="text-transform:capitalize">{{ requested_apparel.type }}</h1>
+        <h1 class="w3-hide-large w3-hide-medium" style="text-transform:capitalize">{{ requested_apparel.type }}</h1>
+    </div>
+{% else %}
+    <img src="{% static apparel_focus.image %}" alt="image could not be found" style="width:100%">
+    <p><a href="." class="w3-button w3-black w3-padding-large w3-large" onclick="cart.add({{apparel_focus.pk}})">Lägg i kundvagn</a></p>
+{% endif %}
+{% endblock %}
 
-            {% block content %}
-           <h1>Här kommer det finnas Sortiment</h1>
+<!--    ???{#
+{% block header_image_content %}
+<p><a href="#" class="w3-button w3-black w3-padding-large w3-large" onclick="">Lägg i kundvagn</a></p>
+{% endblock %}
+-->#}
 
-            {# insert for-loop going through clothes in database #}
-           <div class="Gallery">
-               <img src="Shirt.jpg" alt="shirt">
-               <div class="Desc">Im text under img</div>
-            </div>
-            {% endblock %}
+{% block content_grid %}
+<div class="w3-row ">
+{% for apparel in requested_apparel_list %}
+    <div class="w3-col l3 s6">
+
+      <div class="w3-container">
+          <a href="{% url 'sortiment_apparel_focus' requested_apparel.type apparel.id %}">
+            <img src="{% static apparel.image %}" style="width:100%">
+          </a>
+          <p>{{ apparel.brand }}<br><b>{{ apparel.price }} kr</b></p>
+      </div>
+
+    </div>
+
+        {% if forloop.counter|divisibleby:"4" and not forloop.last %}
+    </div><div class="w3-row">
+        {% endif %}
+{% endfor %}
+  </div>
+
+{% endblock %}

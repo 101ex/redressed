@@ -1,8 +1,11 @@
-from django.conf.urls import url
+from django.conf.urls import url, include
+
 from . import views
 
 urlpatterns = [
-    url(r'^$', views.sortiment, name='sortiment'),
-    #dynamic page depending on database tables
-    #url(r'^[1-*]$'
+    url(r'^(?P<apparel>[\w]+)/', include([
+        url(r'^$', views.sortiment, name='sortiment_apparel'),
+        url(r'^(?P<apparel_id>[\d]+)/$', views.sortiment, name='sortiment_apparel_focus'),
+
+    ])),
 ]

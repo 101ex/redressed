@@ -1,0 +1,22 @@
+<!DOCTYPE html>
+
+{% extends "base.html" %}
+{% load static %}
+
+
+
+{% block image_header %}{% endblock %}
+
+{% block content_grid %}
+<div class="w3-container">
+    <div class="w3-center">
+        <p>Order ID: </p>
+        <p>Adress: </p>
+        <p>Postnummer: </p>
+    </div>
+
+    <div class="w3-center w3-display-container w3-container">
+        <p><h5>{% lorem 1 p %}</h5></p>
+    </div>
+</div>
+{% endblock %}

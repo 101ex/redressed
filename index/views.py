@@ -1,6 +1,5 @@
 from django.shortcuts import render
 from django.template import loader
-from django.http import HttpResponse
 from .models import Article
 from . import models
 
@@ -12,6 +11,4 @@ def index(request):
         "all_articles":all_articles,
     }
 
-    template = loader.get_template('news/base_index.html')
-    html = template.render(context, request)
-    return HttpResponse(html)
+    return render(request, 'index/base_index.html', context)

@@ -3,13 +3,16 @@
 {% load static %}
 
 <html>
-<title>{% block title %} Home {% endblock %}</title>
+<title>{% block title %} ReDressed UF {% endblock %}</title>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <link rel="stylesheet" href="https://www.w3schools.com/w3css/4/w3.css">
 <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Roboto">
 <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Montserrat">
 <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+<script type="text/javascript" src="{% static '/js/easycart.js' %}"></script>
+<script src="{% static '/js/token.js' %}"></script>
 <style>
 .w3-sidebar a {font-family: "Roboto", sans-serif}
 body,h1,h2,h3,h4,h5,h6,.w3-wide {font-family: "Montserrat", sans-serif;}
@@ -28,11 +31,11 @@ body,h1,h2,h3,h4,h5,h6,.w3-wide {font-family: "Montserrat", sans-serif;}
   </div>
 
   <div class="w3-padding-64 w3-large w3-text-grey" style="font-weight:bold">
-    <a href="sortiment/skjortor/" class="w3-bar-item w3-button">Toppar</a>
-    <a href="sortiment/jackor/" class="w3-bar-item w3-button">Jackor</a>
-    <a href="sortiment/fest/" class="w3-bar-item w3-button">Fest</a>
-    <a href="sortiment/jeans/" class="w3-bar-item w3-button">Byxor</a>
-    <a href="sortiment/skor/" class="w3-bar-item w3-button">Skor</a>
+    <a href="{% url 'sortiment_apparel' 'toppar' %}" class="w3-bar-item w3-button">Toppar</a>
+    <a href="{% url 'sortiment_apparel' 'jackor' %}" class="w3-bar-item w3-button">Jackor</a>
+    <a href="{% url 'sortiment_apparel' 'fest'   %}" class="w3-bar-item w3-button">Fest</a>
+    <a href="{% url 'sortiment_apparel' 'byxor'  %}" class="w3-bar-item w3-button">Byxor</a>
+    <a href="{% url 'sortiment_apparel' 'skor'   %}" class="w3-bar-item w3-button">Skor</a>
   </div>
   <a href="#footer" class="w3-bar-item w3-button w3-padding">Contact</a> 
   <a href="javascript:void(0)" class="w3-bar-item w3-button w3-padding" onclick="document.getElementById('newsletter').style.display='block'">Newsletter</a> 
@@ -58,90 +61,34 @@ body,h1,h2,h3,h4,h5,h6,.w3-wide {font-family: "Montserrat", sans-serif;}
   <!-- Top header -->
   {% block header %}
   <header class="w3-container w3-xlarge">
-    <p class="w3-left">Home</p>
+    <p class="w3-left" style= "text-transform:capitalize">{% block header_title %} Home {% endblock %}</p>
     <p class="w3-right">
-      <i class="fa fa-shopping-cart w3-margin-right"></i>
+      {{cart.item_count}}
+      <a href="{% url 'checkout' %}"><i class="fa fa-shopping-cart w3-margin-right"></i></a>
       <i class="fa fa-search"></i>
     </p>
   </header>
 
   <!-- Image header -->
   <div class="w3-display-container w3-container">
-    {% block header_img %}
-    <img src="{% static 'media/Lich-King-Banner.jpg' %}" alt="Home" style="width:100%">
+    {% block image_header %}
+    {% block header_image %}
+    <img src="{% static 'index/media/Lich-King-Banner.jpg' %}" alt="Home" style="width:100%">
     {% endblock %}
+      {% block header_image_content %}
     <div class="w3-display-topleft w3-text-white" style="padding:24px 48px">
       <h1 class="w3-jumbo w3-hide-small">ReDressed UF</h1>
       <h1 class="w3-hide-large w3-hide-medium">ReDressed UF</h1>
       <h1 class="w3-hide-small">Second Hand</h1>
-      <p><a href="sortiment/" class="w3-button w3-black w3-padding-large w3-large">HANDLA</a></p>
     </div>
+    {% endblock %}
+    {% endblock %}
   </div>
 
-  <div class="w3-container w3-text-grey" id="jeans">
-    <p>{% block items %}{% endblock %}</p>
-  </div>
 {% endblock %}
 
   <!-- Product grid -->
 {% block content_grid %}
-  <div class="w3-row w3-grayscale">
-    <div class="w3-col l3 s6">
-      <div class="w3-container">
-        <img src="/w3images/jeans1.jpg" style="width:100%">
-        <p>Ripped Skinny Jeans<br><b>$24.99</b></p>
-      </div>
-      <div class="w3-container">
-        <img src="/w3images/jeans2.jpg" style="width:100%">
-        <p>Mega Ripped Jeans<br><b>$19.99</b></p>
-      </div>
-    </div>
-
-    <div class="w3-col l3 s6">
-      <div class="w3-container">
-        <div class="w3-display-container">
-          <img src="/w3images/jeans2.jpg" style="width:100%">
-          <span class="w3-tag w3-display-topleft">New</span>
-          <div class="w3-display-middle w3-display-hover">
-            <button class="w3-button w3-black">Buy now <i class="fa fa-shopping-cart"></i></button>
-          </div>
-        </div>
-        <p>Mega Ripped Jeans<br><b>$19.99</b></p>
-      </div>
-      <div class="w3-container">
-        <img src="/w3images/jeans3.jpg" style="width:100%">
-        <p>Washed Skinny Jeans<br><b>$20.50</b></p>
-      </div>
-    </div>
-
-    <div class="w3-col l3 s6">
-      <div class="w3-container">
-        <img src="/w3images/jeans3.jpg" style="width:100%">
-        <p>Washed Skinny Jeans<br><b>$20.50</b></p>
-      </div>
-      <div class="w3-container">
-        <div class="w3-display-container">
-          <img src="/w3images/jeans4.jpg" style="width:100%">
-          <span class="w3-tag w3-display-topleft">Sale</span>
-          <div class="w3-display-middle w3-display-hover">
-            <button class="w3-button w3-black">Buy now <i class="fa fa-shopping-cart"></i></button>
-          </div>
-        </div>
-        <p>Vintage Skinny Jeans<br><b class="w3-text-red">$14.99</b></p>
-      </div>
-    </div>
-
-    <div class="w3-col l3 s6">
-      <div class="w3-container">
-        <img src="/w3images/jeans4.jpg" style="width:100%">
-        <p>Vintage Skinny Jeans<br><b>$14.99</b></p>
-      </div>
-      <div class="w3-container">
-        <img src="/w3images/jeans1.jpg" style="width:100%">
-        <p>Ripped Skinny Jeans<br><b>$24.99</b></p>
-      </div>
-    </div>
-  </div>
 {% endblock %}
 
   <!-- Subscribe section -->
@@ -198,7 +145,7 @@ body,h1,h2,h3,h4,h5,h6,.w3-wide {font-family: "Montserrat", sans-serif;}
     </div>
   </footer>
 
-  <div class="w3-black w3-center w3-padding-24">Powered by <a href="https://www.w3schools.com/w3css/default.asp" title="W3.CSS" target="_blank" class="w3-hover-opacity">w3.css</a></div>
+ <div class="w3-black w3-center w3-padding-24"></div>
 
   <!-- End page content -->
 </div>
@@ -217,7 +164,7 @@ body,h1,h2,h3,h4,h5,h6,.w3-wide {font-family: "Montserrat", sans-serif;}
   </div>
 </div>
 
-<script>
+<script> {% block script %}
 // Accordion 
 function myAccFunc() {
     var x = document.getElementById("demoAcc");
@@ -238,6 +185,15 @@ function w3_close() {
     document.getElementById("mySidebar").style.display = "none";
     document.getElementById("myOverlay").style.display = "none";
 }
-</script>
+
+//easycart URLS
+var URLS = {
+  addItem:        '{% url "cart-add" %}',
+  removeItem:     '{% url "cart-remove" %}',
+  changeQuantity: '{% url "cart-change-quantity" %}',
+  emptyCart:      '{% url "cart-empty" %}',
+}
+
+{% endblock %} </script>
 </body>
 </html>
